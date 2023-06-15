@@ -1,0 +1,36 @@
+tweeter
+├── .gitignore
+├── package.json
+├── README.md
+├── server.js
+│
+├── node_modules
+│
+├── server
+│   ├── data-files
+│   │   └── initial-tweets.json
+│   ├── index.js
+│   ├── lib
+│   │   └── util
+│   │       ├── simulate-delay.js
+│   │       └── user-helper.js
+│   ├── data-helper.js
+│   ├── data-adjust.js
+│   ├── in-memory-db.js
+│   └── routes
+│       └── tweets.js
+│
+├── .github
+│   └── PULL_REQUEST_TEMPLATE.md
+│
+└── public
+    ├── index.html
+    ├── images
+    │   └── profile-hex.png
+    ├── style
+    │   └── layout.css
+    ├── script
+    │   └── client.js
+    └── vendor
+        ├── jquery-2.2.3.min.js
+        └── normalize-4.1.1.css
