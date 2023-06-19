@@ -14,19 +14,41 @@ html {
  * Global layout stuff
  */
 
+html {
+  box-sizing: border-box;
+}
+
+*,*:before,*:after {
+  box-sizing: inherit;
+}
 
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
+  display: flex;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
- nav {
-  font-family: 'Bungee', cursive;
+ main {
+   width: 90%;
+   background-color: white;
+   margin: auto;
+   padding: 20px 10px 20px 10px;
+ }
+
+ @media only screen and (max-width: 1024px) {
+   body {
+     color: #545149;
+     background-color: #f4f1ec;
+     font-family: "Source Sans Pro", sans-serif;
+     font-size: 24px;
+     display: flex;
+     flex-direction: column;
+   }
  }
  

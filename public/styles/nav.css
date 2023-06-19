@@ -1,0 +1,48 @@
+nav {
+  position: fixed;
+  top: 0;
+  height: 120px;
+  width: 100%;
+  padding: 0 1.5em;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+}
+
+.tweeter-logo {
+  font-family: 'Bungee', cursive;
+}
+
+.nav-left {
+  display: flex;
+  flex-basis: 80%;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fas {
+  color: orangered;
+  font-size: 10px;
+}
+
+.write-tweet {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+  nav {
+    background-color: transparent;
+  }
+
+  .nav-right {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 60%;
+    align-items: center;
+  }
+}
