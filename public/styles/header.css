@@ -1,0 +1,38 @@
+header.profile-header {
+  height: 400px;
+  width: 33%;
+  margin-top: 150px;
+  margin-right: 50px;
+  margin-left: 50px;
+  background-color: #f0a141;
+  background-image: url("../images/background.png");
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+body header.header-pic {
+  display: flex;
+  justify-self: flex-end;
+}
+
+body header.header-name {
+  display: flex;
+  justify-self: flex-end;
+}
+
+@media only screen and (max-width: 1024px) {
+  header.profile-header {
+    height: 520px;
+    width: 100%;
+    margin: auto;
+    background-color: #f0a141;
+    background-image: url("../images/background.png");
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
