@@ -45,4 +45,7 @@ nav {
     flex-basis: 60%;
     align-items: center;
   }
+  .nav-right .fas {
+    font-size: 24px
+  }
 }

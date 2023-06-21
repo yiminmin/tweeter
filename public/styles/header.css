@@ -1,4 +1,4 @@
-header.profile-header {
+.profile-header {
   height: 400px;
   width: 33%;
   margin-top: 150px;
@@ -6,7 +6,6 @@ header.profile-header {
   margin-left: 50px;
   background-color: #f0a141;
   background-image: url("../images/background.png");
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -24,15 +23,36 @@ body header.header-name {
 }
 
 @media only screen and (max-width: 1024px) {
-  header.profile-header {
+  .profile-header {
     height: 520px;
     width: 100%;
     margin: auto;
     background-color: #f0a141;
     background-image: url("../images/background.png");
-    display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+  }
+    nav {
+      height: 90px;
+      background-image: url("../images/background.png");
+      background-color: #f0a141;
+    }
+
+}
+
+@media (min-width: 1025px) {
+ .profile-header {
+    width: 30%;
+    margin: 250px 0px 0px 50px;
+  }
+
+  .container {
+    width: 50%;
+    margin: 200px;
+  }
+
+  .main-body {
+    display: flex;
   }
 }

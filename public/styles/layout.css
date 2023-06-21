@@ -4,14 +4,6 @@
  * Do not modify these two selectors, please
  */
 
- document.body.style.backgroundColor='fuchsia';
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 /*
  * Global layout stuff
  */
@@ -30,6 +22,7 @@ body {
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
   display: flex;
+  flex-direction: column;
 }
 
 /*
