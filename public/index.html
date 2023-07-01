@@ -40,6 +40,8 @@
 
     <!--new-tweet CSS-->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <!--tweet-container CSS-->
+    <link rel="stylesheet" href="styles/tweet-container.css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -79,7 +81,6 @@
       <main class="container">
         <!-- new tweets <section> -->
         <section class="new-tweet">
-          <!-- <h2 class="compose_h2">Compose Tweet</h2> -->
           <form id="create-tweet">
             <div class="top-tweet">
               <textarea
@@ -100,6 +101,58 @@
               </output>
             </div>
           </form>
+        </section>
+        <section class="tweet-container">
+          <article class="tweet">
+            <div class="inside-tweet">
+              <header>
+                <div class="user-details">
+                  <img src="/images/boy.png" alt="" />
+                  <p>Newton</p>
+                  <span>@SirLsaac</span>
+                </div>
+              </header>
+              <div class="tweet-text">
+                <p class="content">
+                  If I have seen further it is by standing on the shoulders of
+                  shoulders of giants
+                </p>
+              </div>
+              <footer>
+                <span class="time">10 days ago</span>
+                <span class="icons">
+                  <i class="fa fa-flag" aria-hidden="true"></i>
+                  <i class="fa fa-retweet" aria-hidden="true"></i>
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </span>
+              </footer>
+            </div>
+          </article>
+          <article class="tweet">
+            <div class="inside-tweet">
+              <header>
+                <div class="user-details">
+                  <img src="/images/girl.png" alt="" />
+
+                  <p>Rhoda Jacob</p>
+                  <span>@MrsJacobs</span>
+                </div>
+              </header>
+              <div class="tweet-text">
+                <p class="content">
+                  Hello World!
+                </p>
+              </div>
+              <footer>
+                <span class="time">10 days ago</span>
+                <span class="icons">
+                  <i class="fa fa-flag" aria-hidden="true"></i>
+                  <i class="fa fa-retweet" aria-hidden="true"></i>
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </span>
+              </footer>
+            </div>
+          </article>
         </section>
       </main>
     </div>

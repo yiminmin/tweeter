@@ -31,7 +31,7 @@
 
 #create-tweet {
   margin-top: 30px;
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
