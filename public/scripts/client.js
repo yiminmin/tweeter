@@ -66,4 +66,26 @@ const data = [
 
 $(document).ready(function() {
   renderTweets(data);
+
+  // add this block
+  $('#create-tweet').on('submit', function(event) {
+    event.preventDefault();
+
+    const formData = $(this).serialize();
+    console.log(formData); // optional: log form data to console
+
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: formData,
+      success: function(response) {
+        // handle success
+        console.log(response);
+      },
+      error: function(error) {
+        // handle error
+        console.log(error);
+      }
+    });
+  });
 });
