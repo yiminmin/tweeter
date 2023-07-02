@@ -67,3 +67,12 @@
 .countOver {
   color: red;
 }
+
+#submit-button:active {
+  background-color: #7FDBFF;
+  /* changes background color when button is clicked */
+  transform: scale(0.95);
+  /* slightly reduce the size of the button when clicked */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  border: 2px solid #7FDBFF;
+}

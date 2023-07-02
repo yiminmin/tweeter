@@ -1,5 +1,7 @@
 // This function creates a tweet article
 const createTweetElement = function(tweet) {
+  const timeAgo = timeago.format(tweet.created_at); // Use timeago to format the tweet's creation time
+  
   const $tweet = $(`
     <article class="tweet">
       <div class="inside-tweet">
@@ -14,7 +16,7 @@ const createTweetElement = function(tweet) {
           <p class="content">${tweet.content.text}</p>
         </div>
         <footer>
-          <span class="time">${new Date(tweet.created_at).toLocaleString()}</span>
+          <span class="time">${timeAgo}</span>
           <span class="icons">
             <i class="fa fa-flag" aria-hidden="true"></i>
             <i class="fa fa-retweet" aria-hidden="true"></i>
@@ -34,58 +36,60 @@ const renderTweets = function(tweets) {
 
   tweets.forEach(tweet => {
     const $tweet = createTweetElement(tweet);
-    $tweetsContainer.append($tweet);
+    $tweetsContainer.prepend($tweet); // use prepend instead of append
   });
 }
 
-// Test / driver code
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
+// This function fetches tweets from the server
+function loadTweets() {
+  $.ajax({
+    url: '/tweets',
+    method: 'GET',
+    dataType: 'json',
+    success: function(tweets) {
+      // Once the request is successful, render the tweets
+      renderTweets(tweets);
     },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+    error: function(err) {
+      // Log any error to the console
+      console.log(`Error: ${err}`);
+    }
+  });
+}
 
 $(document).ready(function() {
-  renderTweets(data);
+  // Define the form submission event handler outside of any other function
+  // It will be added only once when the document is ready
+ $('#create-tweet').on('submit', function(event) {
+  event.preventDefault();
 
-  // add this block
-  $('#create-tweet').on('submit', function(event) {
-    event.preventDefault();
+  const tweetText = $(this).find('textarea').val();
 
-    const formData = $(this).serialize();
-    console.log(formData); // optional: log form data to console
+  if (tweetText.trim() === "") {
+    alert("Please enter some text before tweeting"); // Or display a custom message
+    return; // Stop the function here
+  }
 
-    $.ajax({
-      url: '/tweets',
-      method: 'POST',
-      data: formData,
-      success: function(response) {
-        // handle success
-        console.log(response);
-      },
-      error: function(error) {
-        // handle error
-        console.log(error);
-      }
-    });
+  if (tweetText.length > 140) {
+    alert("You cannot post more than 140 characters"); // Or display a custom message
+    return; // Stop the function here
+  }
+
+  const formData = $(this).serialize();
+
+  $.ajax({
+    url: '/tweets',
+    method: 'POST',
+    data: formData,
+    success: function(response) {
+      loadTweets(); // Refresh the tweets
+    },
+    error: function(error) {
+      console.log(error);
+    }
   });
+});
+
+  // Initially load the tweets when the document is ready
+  loadTweets();
 });
