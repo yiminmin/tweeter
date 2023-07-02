@@ -76,3 +76,26 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   border: 2px solid #7FDBFF;
 }
+
+.error-messages .error-length,
+.error-messages .error-empty {
+  display: none;
+  color: red;
+  border: solid red;
+  padding: 10px;
+  top: 0px;
+}
+
+/* p.error-length {
+  color: red;
+  border: solid red;
+  padding: 10px;
+  top: 0px;
+}
+
+p.error-empty {
+  color: red;
+  border: solid red;
+  padding: 10px;
+  top: 0px;
+} */

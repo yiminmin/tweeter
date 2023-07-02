@@ -68,20 +68,33 @@ function loadTweets() {
 $(document).ready(function() {
   // Define the form submission event handler outside of any other function
   // It will be added only once when the document is ready
+   // If user clicks anywhere outside of the error message, hide it
+  $('body').on('click', function(event) {
+    if (!$(event.target).closest('.error-messages').length) {
+      $('.error-messages .error-length').hide();
+      $('.error-messages .error-empty').hide();
+    }
+  });
  $('#create-tweet').on('submit', function(event) {
   event.preventDefault();
+
+   // Hide any error messages before validation
+    $('.error-messages .error-length').hide();
+    $('.error-messages .error-empty').hide();
 
   const tweetText = $(this).find('textarea').val();
 
   if (tweetText.trim() === "") {
-    alert("Please enter some text before tweeting"); // Or display a custom message
+    $('.error-messages .error-empty').show();
     return; // Stop the function here
   }
 
   if (tweetText.length > 140) {
-    alert("You cannot post more than 140 characters"); // Or display a custom message
+    $('.error-messages .error-length').show();
+
     return; // Stop the function here
   }
+
 
   const formData = $(this).serialize();
 
