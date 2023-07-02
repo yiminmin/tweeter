@@ -2,21 +2,28 @@
 const createTweetElement = function(tweet) {
   const timeAgo = timeago.format(tweet.created_at); // Use timeago to format the tweet's creation time
   
+   // escape function for cross-site scripting
+  function escape(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   const $tweet = $(`
     <article class="tweet">
       <div class="inside-tweet">
         <header>
           <div class="user-details">
-            <img src="${tweet.user.avatars}" alt="" />
-            <p>${tweet.user.name}</p>
-            <span>${tweet.user.handle}</span>
+            <img src="${escape(tweet.user.avatars)}" alt="" />
+            <p>${escape(tweet.user.name)}</p>
+            <span>${escape(tweet.user.handle)}</span>
           </div>
         </header>
         <div class="tweet-text">
-          <p class="content">${tweet.content.text}</p>
+          <p class="content">${escape(tweet.content.text)}</p>
         </div>
         <footer>
-          <span class="time">${timeAgo}</span>
+          <span class="time">${escape(timeAgo)}</span>
           <span class="icons">
             <i class="fa fa-flag" aria-hidden="true"></i>
             <i class="fa fa-retweet" aria-hidden="true"></i>
@@ -27,7 +34,8 @@ const createTweetElement = function(tweet) {
     </article>
   `);
   return $tweet;
-}
+};
+
 
 // This function appends all tweets to the tweets container
 const renderTweets = function(tweets) {
