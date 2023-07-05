@@ -88,9 +88,3 @@
   box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.3);
 }
 
-#submit-button:active {
-  background-color: #7FDBFF;
-  /* changes background color when button is clicked */
-  transform: scale(0.95);
-  /* slightly reduce the size of the button when clicked */
-}
